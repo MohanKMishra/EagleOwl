@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import LowMargin from "./Component/LowMargin";
+import List from "./Component/List";
 
-function App() {
+const arr = [
+  {
+    title: "Hile aodo dk",
+    data: [
+      { name: "AAMAMMO", percent: 48 },
+      { name: "AAMMO", percent: 80 },
+      { name: "AAO Od so", percent: 28 },
+    ],
+  },
+  {
+    title: "do dk",
+    data: [
+      { name: "AAMAMMO", percent: 48 },
+      { name: "AAMMO", percent: 80 },
+      { name: "AAO Od so", percent: 28 },
+    ],
+  },
+  {
+    title: "Hile aok",
+    data: [
+      { name: "AAMAMMO", percent: 48 },
+      { name: "AAMMO", percent: 80 },
+      { name: "AAO Od so", percent: 28 },
+    ],
+  },
+];
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        {arr.map((e) => (
+          <LowMargin item={e} />
+        ))}
+      </div>
+      <div className="table">
+        <List />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
