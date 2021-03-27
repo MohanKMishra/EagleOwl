@@ -1,6 +1,6 @@
 import { Progress } from "antd";
 
-const Laka = ({ item }) => {
+const Circle = ({ item }) => {
   const handleColor = (e) => {
     if (e >= 0 && e <= 33) {
       return "red";
@@ -24,4 +24,4 @@ const Laka = ({ item }) => {
   );
 };
 
-export default Laka;
+export default Circle;

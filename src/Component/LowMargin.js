@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import Laka from "./Laka";
+import Circle from "./Circle";
 
 const LowMargin = ({ item }) => {
   return (
@@ -9,7 +9,7 @@ const LowMargin = ({ item }) => {
       <div className="progress">
         <div className="circle">
           {item.data.map((e) => (
-            <Laka item={e} />
+            <Circle item={e} />
           ))}
         </div>
       </div>

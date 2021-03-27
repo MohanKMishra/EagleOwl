@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Table, Radio, Divider, Tabs } from "antd";
-import { Skeleton } from "antd";
 
 const { TabPane } = Tabs;
 const aa = [
@@ -70,9 +69,12 @@ const List = () => {
   ];
 
   const changeTab = (key) => {
-    console.log(activeKey);
-    console.log(key);
-    // setActivekey(activeKey)
+    // console.log(activeKey);
+    // console.log(key);
+    if (activeKey != key) {
+      setData([]);
+      setPage(1);
+    }
     if (key == 1) {
       setActivekey("");
     } else if (key == 2) {
@@ -100,7 +102,6 @@ const List = () => {
     )
       .then((result) => result.json())
       .then((res) => {
-        console.log(res);
         let arr = res.results.map((i) => {
           let date = new Date(i.last_updated.date);
           return {
@@ -113,9 +114,9 @@ const List = () => {
           };
         });
 
-        // console.log(arr[0].id);`
-
-        setData([...data, ...arr]);
+        // console.log(data, arr);
+        setData(data.concat(arr));
+        // setLoading(false);
       });
   };
 
@@ -136,13 +137,16 @@ const List = () => {
 
   const handleScroll = () => {
     setScroll(window.scrollY);
-    console.log("scroll", scroll, window.scrollY);
-    if (scroll > height) {
-      console.log("UIONHOKNOIN IUHO O");
-      setLoading(true);
+    if (window.scrollY > height) {
+      // setLoading(true);
       setPage(page + 1);
+      setHeight(height + 390);
     }
   };
+
+  useEffect(() => {
+    console.log(data);
+  }, [data.length]);
 
   return (
     <div>
@@ -154,19 +158,20 @@ const List = () => {
       ></Radio.Group>
       {/* <Divider /> */}
       <Tabs defaultActiveKey={1} type="card" onChange={changeTab}>
-        {aa.map((item) => {
+        {aa.map((item, key) => {
           return (
             <TabPane tab={item.tab} key={item.key}>
               <Table
+                key={key}
                 rowSelection={{ type: selectionType, ...rowSelection }}
                 columns={columns}
                 dataSource={data}
                 bordered="true"
                 size="small"
                 headercolor="black"
+                pagination={false}
                 scroll={{ x: 1300 }}
               />
-              {isLoading && <Skeleton avatar paragraph={{ rows: 4 }} />}
             </TabPane>
           );
         })}

@@ -5,27 +5,27 @@ import List from "./Component/List";
 
 const arr = [
   {
-    title: "Hile aodo dk",
+    title: "High Margin Recipes",
     data: [
-      { name: "AAMAMMO", percent: 48 },
-      { name: "AAMMO", percent: 80 },
-      { name: "AAO Od so", percent: 28 },
+      { name: "	Textures of lamb", percent: 48 },
+      { name: "Paneer Tikka Masala", percent: 80 },
+      { name: "Palak Paneer Butter Masala", percent: 28 },
     ],
   },
   {
-    title: "do dk",
+    title: "Low Margin Recipes",
     data: [
-      { name: "AAMAMMO", percent: 48 },
-      { name: "AAMMO", percent: 80 },
-      { name: "AAO Od so", percent: 28 },
+      { name: "Textures of lamb", percent: 48 },
+      { name: "Paneer Tikka Masala", percent: 80 },
+      { name: "Palak Paneer Butter Masala", percent: 28 },
     ],
   },
   {
-    title: "Hile aok",
+    title: "Top Fluctuating Recipes",
     data: [
-      { name: "AAMAMMO", percent: 48 },
-      { name: "AAMMO", percent: 80 },
-      { name: "AAO Od so", percent: 28 },
+      { name: "	Textures of lamb", percent: 48 },
+      { name: "Paneer Tikka Masala", percent: 80 },
+      { name: "Palak Paneer Butter Masala", percent: 28 },
     ],
   },
 ];
