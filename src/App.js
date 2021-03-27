@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
       <div className="header">
         {data.map((e) => (
-          <Margin item={e} />
+          <Margin item={e} key={e.id}/>
         ))}
       </div>
       <div className="table">

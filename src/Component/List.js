@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Table, Radio, Divider, Tabs } from "antd";
+import { Table, Radio, Tabs } from "antd";
 
 const { TabPane } = Tabs;
-const aa = [
-  { tab: "ALL REIPE(S)", key: 1 },
-  { tab: "INCORRECT", key: 2 },
-  { tab: "UNTAGGED", key: 3 },
-  { tab: "DISABLED", key: 4 },
+const tabs = [
+  { tab: "ALL REIPE(S)", key: "1" },
+  { tab: "INCORRECT", key: "2" },
+  { tab: "UNTAGGED", key: "3" },
+  { tab: "DISABLED", key: "4" },
 ];
 
 const List = () => {
@@ -14,8 +14,6 @@ const List = () => {
   const [data, setData] = useState([]);
   const [activeKey, setActivekey] = useState("");
   const [page, setPage] = useState(1);
-  const [isLoading, setLoading] = useState(false);
-  const [scroll, setScroll] = useState(0);
   const [height, setHeight] = useState(50);
 
   const columns = [
@@ -24,7 +22,7 @@ const List = () => {
       dataIndex: "name",
       sorter: {},
       align: "left",
-      render: (text) => <a>{text}</a>,
+      render: (text) => <p>{text}</p>,
     },
     {
       title: "LASTUPDATED",
@@ -62,24 +60,22 @@ const List = () => {
     },
     {
       title: "TAGS/ACTIONS",
-      dataIndex: "",
-      render: () => <a>Indian Ma ..</a>,
+      dataIndex: "tags",
+      render: () => <p>Indian Ma ..</p>,
       width: 70,
     },
   ];
 
   const changeTab = (key) => {
-    // console.log(activeKey);
-    // console.log(key);
-    if (activeKey != key) {
+    if (activeKey !== key) {
       setData([]);
       setPage(1);
     }
-    if (key == 1) {
+    if (key === "1") {
       setActivekey("");
-    } else if (key == 2) {
+    } else if (key === "2") {
       setActivekey("&is_incorrect=true");
-    } else if (key == 3) {
+    } else if (key === "3") {
       setActivekey("&is_untagged=true");
     } else {
       setActivekey("&id_disabled=true");
@@ -106,6 +102,7 @@ const List = () => {
           let date = new Date(i.last_updated.date);
           return {
             ...i,
+            key: i.id,
             last_updated: date.toLocaleDateString("en-US", {
               month: "short",
               day: "numeric",
@@ -114,9 +111,7 @@ const List = () => {
           };
         });
 
-        // console.log(data, arr);
         setData(data.concat(arr));
-        // setLoading(false);
       });
   };
 
@@ -136,17 +131,11 @@ const List = () => {
   }, [page]);
 
   const handleScroll = () => {
-    setScroll(window.scrollY);
     if (window.scrollY > height) {
-      // setLoading(true);
       setPage(page + 1);
       setHeight(height + 390);
     }
   };
-
-  useEffect(() => {
-    console.log(data);
-  }, [data.length]);
 
   return (
     <div>
@@ -156,13 +145,11 @@ const List = () => {
         }}
         value={selectionType}
       ></Radio.Group>
-      {/* <Divider /> */}
-      <Tabs defaultActiveKey={1} type="card" onChange={changeTab}>
-        {aa.map((item, key) => {
+      <Tabs defaultActiveKey="1" type="card" onChange={changeTab}>
+        {tabs.map((item) => {
           return (
             <TabPane tab={item.tab} key={item.key}>
               <Table
-                key={key}
                 rowSelection={{ type: selectionType, ...rowSelection }}
                 columns={columns}
                 dataSource={data}
@@ -179,4 +166,5 @@ const List = () => {
     </div>
   );
 };
+
 export default List;

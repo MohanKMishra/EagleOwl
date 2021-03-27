@@ -1,7 +1,8 @@
 [
   {
+    "id": 0,
     "title": "High Margin Recipes",
-    "type" : "circle",
+    "type": "circle",
     "data": [
       {
         "name": "Textures of lamb",
@@ -18,8 +19,9 @@
     ]
   },
   {
+    "id": 1,
     "title": "Low Margin Recipes",
-    "type" : "circle",
+    "type": "circle",
     "data": [
       {
         "name": "Textures of lamb",
@@ -36,8 +38,9 @@
     ]
   },
   {
+    "id": 2,
     "title": "Top Fluctuating Recipes",
-    "type" : "increment",
+    "type": "increment",
     "data": [
       {
         "name": "Texture of lamb",

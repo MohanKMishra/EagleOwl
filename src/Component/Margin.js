@@ -9,12 +9,10 @@ const Margin = ({ item }) => {
       <h5 className="top_header">{item.title}</h5>
       <div className="progress">
         <div className="circle">
-          {item.type == "circle"&& item.data.map((e) => (
-            <Circle item={e} />
-          ))}
-          {item.type == "increment"&& item.data.map((e) => (
-            <Increment item={e} />
-          ))}
+          {item.type === "circle" &&
+            item.data.map((e) => <Circle item={e} key={e.name} />)}
+          {item.type === "increment" &&
+            item.data.map((e) => <Increment item={e} key={e.name} />)}
         </div>
       </div>
     </div>
