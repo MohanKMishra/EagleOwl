@@ -1,0 +1,59 @@
+[
+  {
+    "title": "High Margin Recipes",
+    "type" : "circle",
+    "data": [
+      {
+        "name": "Textures of lamb",
+        "percent": 48
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "percent": 80
+      },
+      {
+        "name": "Palak Paneer Butter Masala",
+        "percent": 28
+      }
+    ]
+  },
+  {
+    "title": "Low Margin Recipes",
+    "type" : "circle",
+    "data": [
+      {
+        "name": "Textures of lamb",
+        "percent": 88
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "percent": 10
+      },
+      {
+        "name": "Palak Paneer Butter Masala",
+        "percent": 52
+      }
+    ]
+  },
+  {
+    "title": "Top Fluctuating Recipes",
+    "type" : "increment",
+    "data": [
+      {
+        "name": "Texture of lamb",
+        "percent": 5,
+        "increment": true
+      },
+      {
+        "name": "Paneer Tikka Masala",
+        "percent": 3,
+        "increment": false
+      },
+      {
+        "name": "Palak Paneer Butter Masala",
+        "percent": 8,
+        "increment": false
+      }
+    ]
+  }
+]
